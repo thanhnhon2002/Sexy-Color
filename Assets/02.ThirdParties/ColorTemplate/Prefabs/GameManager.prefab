@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7585791278953876177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7585791278953876179}
+  - component: {fileID: 7585791278953876178}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7585791278953876179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7585791278953876177}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7585791278953876178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7585791278953876177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff8deb4730f41a8b333711e7741781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categories:
+  - displayName: MANDALA
+    levels:
+    - levelFile: {fileID: 4900000, guid: bc6c92d22034fd94bbb93a02392df8bf, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: bdce3d81002fb7c42a40192ede19102c, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 40856b68a6690da469483cbae0f939e2, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 6ed9d253d30c6534ca3d0cba0a4e8641, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+  - displayName: ANIMALS
+    levels:
+    - levelFile: {fileID: 4900000, guid: caa88c91877f74f4988f9212da6c2408, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: bd220d794136f4d4183f823bfe3a1f84, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 4fd8f32ea180fe343941e2f6fd4dfae7, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 5e231f720593cd747809356d50fe5709, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 33f2bb905b266cb4ba0245b2968463cc, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 36ee5f5bf75c32d49bbb5e278267ac73, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 2be6de5e03e609d45a7177ca8f4a3518, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 6b3ff2c7c1e78734eabd71690dd9499b, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 17c7e167bd0f8df4aa8ef138383d93ff, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: adbb47aa55586764597b9bb591843889, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 15c1be72b0cf1174394c70f92fa7f62d, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: f9eb358a849ccdd418b71100462381a1, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 5cfe8e9216d41094eb0ffcbd48b82de0, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+  - displayName: CHARACTERS
+    levels:
+    - levelFile: {fileID: 4900000, guid: 67cb4bdbe005ab843899652e58adcc03, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 8ccfc56f4c55fe04b9c3d1e0d1a0361c, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 6755315a87f67354bbc91bea7df2ef1e, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 60b7d297fefc96b4384bfca85a85ff66, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 4863f04a38b55bc4b80fca52d1c5a6b9, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: c8eb8ec3ff736314ab4b506a3a7edda0, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 49122ccbdafba1544beeb48b810e69d8, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: d22419a8025d6d349b78e4d6b634a9c5, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 3edddf578950eea4f8cccc7978f7613a, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: c93357a051c9c6b4487e64cb74b6fc21, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: a90443a76d41c0643a8b92d0949a62ee, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+  - displayName: FOOD
+    levels:
+    - levelFile: {fileID: 4900000, guid: 17979beac2464cb44b70e8c63e108f2c, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 62a5a2fc8ace9054c966c23ea87cac57, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+  - displayName: PLANTS
+    levels:
+    - levelFile: {fileID: 4900000, guid: df6d38e803c6ec8448768758a116c8e3, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: c5648a7f8230b8347ba5b6dc675ffa61, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 549fc867552a845499b298b067814569, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: b6c49e91080f6124a8f55c7ccf5903fb, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+  - displayName: OTHER
+    levels:
+    - levelFile: {fileID: 4900000, guid: e29e60a09dbb37441b0b085653220971, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 9e9183a2113375746a5a4faf88d223aa, type: 3}
+      coinsToAward: 100
+      locked: 0
+      coinsToUnlock: 0
+    - levelFile: {fileID: 4900000, guid: 70087a69a0dc3da43b019a720d536e8f, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: ab3a1899b85283e4ba43b108e1eb87fd, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: bfd11ef07eaaab742ad25f6aba421fe9, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 1352c070afef82a44a319b5863a7d755, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 75e0df8e887f0524594dbe027ba8f80e, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 75de980b9658dec4facb2e7755b0ee4f, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: efda08269c988ef45876b7c4f52ba731, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 59a3c5042e873cb4d91b61e773b26f28, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 6c8df780edeac87439969f2193905dde, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 76f9524703ec2f94b975842a80bfd80c, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 36a307e99570ef14e97fa8ca973ab753, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 96c1615c1ffff164f94760e29fb040c7, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 24cce2a1b8ee82e4b9ef81c62fe68762, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+    - levelFile: {fileID: 4900000, guid: 6258ad546dfd69c408105828a97d879c, type: 3}
+      coinsToAward: 100
+      locked: 1
+      coinsToUnlock: 100
+  awardHints: 1
+  numLevelsBetweenAds: 0

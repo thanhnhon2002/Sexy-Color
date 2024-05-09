@@ -1,0 +1,10 @@
+start now button.png
+size:1098,171
+filter:Linear,Linear
+pma:true
+scale:0.6
+FX/FX glow
+bounds:765,79,331,90
+offsets:3,3,337,96
+Layer 1
+bounds:2,2,761,167

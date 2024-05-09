@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7302909304667452876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7302909304667452878}
+  - component: {fileID: 7302909304667452879}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7302909304667452878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302909304667452876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7302909304667452879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302909304667452876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff8deb4730f41a8b333711e7741781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  categories:
+  - displayName: Animals
+    levels:
+    - levelFile: {fileID: 4900000, guid: abdb22955199a4770859f95ae90fb7c8, type: 3}
+      coinsToAward: 0
+      locked: 0
+      coinsToUnlock: 0
+      levelImage: {fileID: 21300000, guid: 75547e4805b9f4411907d3fd20786406, type: 3}
+    - levelFile: {fileID: 4900000, guid: 8e50db7e948c64a48ad8c09b26529d35, type: 3}
+      coinsToAward: 0
+      locked: 0
+      coinsToUnlock: 0
+      levelImage: {fileID: 21300000, guid: bedeaa6ab83734c06a12faa476c2375f, type: 3}
+    - levelFile: {fileID: 4900000, guid: 34017a577f61745cea541216db7c5019, type: 3}
+      coinsToAward: 0
+      locked: 0
+      coinsToUnlock: 0
+      levelImage: {fileID: 21300000, guid: ced464f0cc3cc404fa22a5be570e0a79, type: 3}
+    - levelFile: {fileID: 4900000, guid: af1fb5848caa5464abb289f763cc654e, type: 3}
+      coinsToAward: 0
+      locked: 0
+      coinsToUnlock: 0
+      levelImage: {fileID: 21300000, guid: 40f09854e1e81467b97953e87a134d18, type: 3}
+  awardHints: 0
+  numLevelsBetweenAds: 0

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8963141588609695153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8963141588609695155}
+  - component: {fileID: 8963141588609695154}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8963141588609695155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963141588609695153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 696.97815, y: 882.9208, z: -14.584871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8963141588609695154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963141588609695153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e9902908c7248479ce132ebf9b8286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundInfos:
+  - id: bkg-music
+    audioClip: {fileID: 8300000, guid: 8d15a1373a5854b25a3edfe22b3749a1, type: 3}
+    type: 1
+    playAndLoopOnStart: 1
+    clipVolume: 0.5
+  - id: btn-click
+    audioClip: {fileID: 8300000, guid: ec637bc91a26344dbbed5647acb9553a, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+  - id: region-colored
+    audioClip: {fileID: 8300000, guid: 1ff97e80950bd4f40981ecdc727ab733, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+  - id: hint-used
+    audioClip: {fileID: 8300000, guid: bcb4bf276185d4105b61e6ba53a6b326, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1
+  - id: level-completed
+    audioClip: {fileID: 8300000, guid: b38fcc0b55172445fa0b70317abad031, type: 3}
+    type: 0
+    playAndLoopOnStart: 0
+    clipVolume: 1

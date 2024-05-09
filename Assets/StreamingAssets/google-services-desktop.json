@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "733313177671",
+    "project_id": "sexy-coloring-book",
+    "storage_bucket": "sexy-coloring-book.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733313177671:android:c16d538c5e93fd73053962",
+        "android_client_info": {
+          "package_name": "com.eskimo.paintbynumber.animepaint.sexy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYqdNaLZmzN2hl4hEJmnM9vjsgPzsCwVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

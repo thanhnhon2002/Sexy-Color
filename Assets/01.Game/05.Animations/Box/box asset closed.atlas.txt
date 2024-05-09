@@ -1,0 +1,29 @@
+box asset closed.png
+size:1859,522
+filter:Linear,Linear
+pma:true
+scale:0.6
+FX/box asset open4
+bounds:1637,43,196,197
+offsets:36,15,268,239
+rotate:90
+FX/box asset open5
+bounds:1471,40,164,199
+Layer 1
+bounds:428,7,513,644
+offsets:8,12,542,664
+rotate:90
+Layer 2
+bounds:2,2,518,424
+offsets:0,0,524,425
+rotate:90
+Layer 3
+bounds:1287,57,463,182
+offsets:0,0,464,182
+rotate:90
+Layer 4
+bounds:1074,53,467,211
+rotate:90
+Layer 7
+bounds:1471,241,386,279
+offsets:2,0,388,309

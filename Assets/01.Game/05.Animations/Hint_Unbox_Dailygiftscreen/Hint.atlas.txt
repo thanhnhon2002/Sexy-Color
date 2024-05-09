@@ -1,0 +1,7 @@
+Hint.png
+size:131,112
+filter:Linear,Linear
+pma:true
+scale:0.6
+Layer 1
+bounds:2,2,127,108

@@ -1,0 +1,16 @@
+Hint.png
+size:536,213
+filter:Linear,Linear
+pma:true
+scale:0.6
+FX/1
+bounds:212,9,202,193
+rotate:90
+FX/2
+bounds:2,2,209,208
+rotate:90
+Layer 1
+bounds:407,103,127,108
+Layer 2
+bounds:407,2,99,98
+rotate:90

@@ -1,0 +1,8 @@
+box asset open.png
+size:453,454
+filter:Linear,Linear
+pma:true
+scale:0.6
+Layer 1
+bounds:2,2,449,450
+offsets:19,18,487,487
