@@ -32,15 +32,18 @@ public class BannerAdManager
         MaxSdk.ShowBanner(bannerAdUnitId);
         RefreshBanner();
 #endif
+        AdmobManager.Instance.banner.ShowAds(null);
     }
 
     public void RefreshBanner()
     {
-        MaxSdk.LoadBanner(bannerAdUnitId);
+        //AdmobManager.banner.LoadAds();
+        //MaxSdk.LoadBanner(bannerAdUnitId);
     }
     public void HideBanner()
     {
-        MaxSdk.HideBanner(bannerAdUnitId);
+        AdmobManager.Instance.banner.SetBannerVisible(false);
+        //MaxSdk.HideBanner(bannerAdUnitId);
     }
 
     #region Event Listeners

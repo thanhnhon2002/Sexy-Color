@@ -50,7 +50,8 @@ public class RewardedVideoAdManager
             // FirebaseAnalytics.LogEvent("ads_reward_fail");
         }
 #endif
-        return false;
+        this.onRewardCallback = onRewardCallback;
+        return AdmobManager.Instance.reward.ShowAds(null);
     }
 
     private void LoadRewardedAd()
@@ -58,6 +59,7 @@ public class RewardedVideoAdManager
 #if USE_MAX_SDK
         MaxSdk.LoadRewardedAd(adUnitId);
 #endif
+        AdmobManager.Instance.reward.LoadAds();
     }
 
     #region Event Listeners

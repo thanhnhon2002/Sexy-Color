@@ -8,6 +8,12 @@ using UnityEngine;
 public class AdmobManager : MonoBehaviour
 {
     public static AdmobManager Instance;
+    public  AdmobAdBanner banner;
+    public  AdmobAppOpen appOpen;
+    public  AdmobAdInterstitial inter;
+    public  AdmobReward reward;
+
+
     [SerializeField] private bool showDebug;
     public static bool isReady;
     public bool showAds = true;

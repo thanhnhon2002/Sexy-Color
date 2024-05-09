@@ -1163,7 +1163,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1579732024}
+  - {fileID: 2003917007}
   m_Father: {fileID: 1208530400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &759928035
@@ -1178,7 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d076c77ba1573a6468e636f63da79f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebug: 0
+  showDebug: 1
   APPOPEN_ID: ca-app-pub-1848319716441980/2380150479
 --- !u!114 &759928036
 MonoBehaviour:
@@ -1695,6 +1697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73d0bb29c00f1640ac9b0785b711279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  banner: {fileID: 0}
+  appOpen: {fileID: 759928035}
+  inter: {fileID: 0}
+  reward: {fileID: 0}
   showDebug: 0
   showAds: 1
 --- !u!1001 &1262190515
@@ -1829,6 +1835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482432696141615354, guid: 11767b53a2c85054f947ae5cba20b6a9,
+        type: 3}
+      propertyPath: isFirstLoad
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2146,6 +2157,52 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1510197404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1579732023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579732024}
+  - component: {fileID: 1579732025}
+  m_Layer: 0
+  m_Name: AppOpenFlowWhenChangeState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1579732024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579732023}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759928034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579732025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579732023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29308581240e6b749887bd2aeb631126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebug: 0
+  appOpen: {fileID: 759928035}
 --- !u!1 &1594672066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,7 +3114,7 @@ MonoBehaviour:
   showDebug: 0
   BANNER_ID: ca-app-pub-1848319716441980/4602989130
   useCollapsible: 0
-  position: 1
+  position: 0
 --- !u!114 &1986293675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3070,6 +3127,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37815b0ddf61534998f91c8e9033cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2003917006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003917007}
+  - component: {fileID: 2003917008}
+  m_Layer: 0
+  m_Name: LoadingShowAppOppen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003917007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003917006}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759928034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2003917008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003917006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebd6a95678677549a68c4ce206a52bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebug: 0
+  LOADING_TIME: 7
+  appOpen: {fileID: 759928035}
 --- !u!1001 &307866754976538395
 PrefabInstance:
   m_ObjectHideFlags: 0

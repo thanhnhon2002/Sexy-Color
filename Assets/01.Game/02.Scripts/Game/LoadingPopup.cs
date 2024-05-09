@@ -9,7 +9,7 @@ public class LoadingPopup : Popup
 {
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private Image loadingImage;
-    
+    public bool isFirstLoad;
 
     private LevelData _levelData;
     public override void OnShowing(object[] inData)
@@ -33,9 +33,17 @@ public class LoadingPopup : Popup
         while (time < duration)
         {
             time += Time.deltaTime;
+            //if(time>duration/2) 
             loadingSlider.value = time / duration;
             yield return null;
         }
+        yield return null;
+        if (isFirstLoad)
+        {
+            AdmobManager.Instance.appOpen.ShowAds(null);
+            isFirstLoad = false;
+        }
         Hide(true);
+        
     }
 }

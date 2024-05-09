@@ -30,13 +30,13 @@ public class AdmobAppOpen : AdmobAds
     {
         if (AdmobManager.Instance.showAds == false)
         {
-            Debug.Log("skip by showads = false");
+            if (showDebug) Debug.Log("skip by showads = false");
             return;
         }
         if (AdmobManager.isReady == false)
         {
-            Debug.LogError("admob is not ready for load app open!");
-            return;
+            if (showDebug) Debug.LogError("admob is not ready for load app open!");
+            //return;
         }
         if (appOpenAd != null)
         {

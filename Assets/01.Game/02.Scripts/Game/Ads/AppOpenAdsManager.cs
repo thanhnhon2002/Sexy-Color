@@ -19,22 +19,22 @@ public class AppOpenAdsManager
     public AppOpenAdsManager()
     {
         // TryGoGetAdsConfigurations();
-        MaxSdk.LoadAppOpenAd(AppOpenAdUnitId);
+        //MaxSdk.LoadAppOpenAd(AppOpenAdUnitId);
 
-        MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAdHidden;
-        MaxSdkCallbacks.AppOpen.OnAdLoadedEvent += OnAdLoaded;
-        MaxSdkCallbacks.AppOpen.OnAdLoadFailedEvent += OnAdLoadedFail;
+        //MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAdHidden;
+        //MaxSdkCallbacks.AppOpen.OnAdLoadedEvent += OnAdLoaded;
+        //MaxSdkCallbacks.AppOpen.OnAdLoadFailedEvent += OnAdLoadedFail;
     }
 
-    private void OnAdLoadedFail(string arg1, MaxSdkBase.ErrorInfo arg2)
-    {
-        Debug.Log("AOA ADS LOADED FAILED!!");
-    }
+    //private void OnAdLoadedFail(string arg1, MaxSdkBase.ErrorInfo arg2)
+    //{
+    //    Debug.Log("AOA ADS LOADED FAILED!!");
+    //}
 
-    private void OnAdLoaded(string arg1, MaxSdkBase.AdInfo arg2)
-    {
-        Debug.Log("AOA ADS LOADED!");
-    }
+    //private void OnAdLoaded(string arg1, MaxSdkBase.AdInfo arg2)
+    //{
+    //    Debug.Log("AOA ADS LOADED!");
+    //}
 
     ~AppOpenAdsManager()
     {
@@ -78,30 +78,30 @@ public class AppOpenAdsManager
         if (Time.realtimeSinceStartup - lastTimeShowAds >= timeBetweenAds)
         {
             lastTimeShowAds = Time.realtimeSinceStartup;
-            if (MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
-            {
-                Debug.Log($"DUCK : SHOW AOA NOW");
-                MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
-            }
-            else
-            {
-                tokenSource?.Cancel();
-                tokenSource = new();
-                TryShowingAds(tokenSource.Token);
-            }
+            //if (MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
+            //{
+            //    Debug.Log($"DUCK : SHOW AOA NOW");
+            //    MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
+            //}
+            //else
+            //{
+            //    tokenSource?.Cancel();
+            //    tokenSource = new();
+            //    TryShowingAds(tokenSource.Token);
+            //}
         }
     }
 
     private async Task TryShowingAds( CancellationToken token)
     {
-        while (!MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
-        {
-            Debug.Log($"DUCK : KEEP TRYING AOA NOW");
-            await Task.Delay(1000, token);
-            if (token.IsCancellationRequested) return;
-        }
+        //while (!MaxSdk.IsAppOpenAdReady(AppOpenAdUnitId))
+        //{
+        //    Debug.Log($"DUCK : KEEP TRYING AOA NOW");
+        //    await Task.Delay(1000, token);
+        //    if (token.IsCancellationRequested) return;
+        //}
         
-        if (!token.IsCancellationRequested) MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
+        //if (!token.IsCancellationRequested) MaxSdk.ShowAppOpenAd(AppOpenAdUnitId);
     }
     
     private async void TryGoGetAdsConfigurations()
@@ -123,9 +123,9 @@ public class AppOpenAdsManager
         Debug.Log($"DUCK Fetched : {timeBetweenAds} - {canShowOpenAds}");
     }
 
-    private void OnAdHidden(string arg1, MaxSdkBase.AdInfo arg2)
-    {
-        OnAOAShow?.Invoke();
-        lastTimeShowAds = Time.realtimeSinceStartup;
-    }
+    //private void OnAdHidden(string arg1, MaxSdkBase.AdInfo arg2)
+    //{
+    //    OnAOAShow?.Invoke();
+    //    lastTimeShowAds = Time.realtimeSinceStartup;
+    //}
 }

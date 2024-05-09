@@ -214,7 +214,7 @@ namespace BBG
 		{
 			CurrencyInfo currencyInfo = GetCurrencyInfo(currencyId);
 
-			if (currencyInfo == null || !currencyAmounts.ContainsKey(currencyId))
+			if (currencyInfo == null || currencyAmounts!=null&&!currencyAmounts.ContainsKey(currencyId))
 			{
 				Debug.LogErrorFormat("[CurrencyManager] TrySpend : The given currencyId \"{0}\" does not exist", currencyId);
 

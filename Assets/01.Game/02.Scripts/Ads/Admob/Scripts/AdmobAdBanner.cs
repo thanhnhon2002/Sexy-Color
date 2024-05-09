@@ -1,13 +1,12 @@
 ﻿using GoogleMobileAds.Api;
 using System;
 using UnityEngine;
-using DarkcupGames;
 
 public class AdmobAdBanner : AdmobAds
 {
     public string BANNER_ID;
     public bool useCollapsible = false;
-    public AdPosition position = AdPosition.Bottom;
+    public AdPosition position = AdPosition.Top;
     private BannerView bannerView;
     private string uuid;
     private bool available;
@@ -16,7 +15,7 @@ public class AdmobAdBanner : AdmobAds
 
     public override void Init()
     {
-        bannerView = new BannerView(BANNER_ID, AdSize.Banner, position);
+        bannerView = new BannerView(BANNER_ID,AdSize.IABBanner, position);
         bannerView.OnBannerAdLoaded += () =>
         {
             available = true;
@@ -25,8 +24,8 @@ public class AdmobAdBanner : AdmobAds
         };
         bannerView.OnBannerAdLoadFailed += (err) =>
         {
-            Debug.LogError("load banner failed");
-            Debug.LogError(err.GetMessage());
+            if (showDebug) Debug.LogError("load banner failed");
+            if (showDebug) Debug.LogError(err.GetMessage());
             available = false;
             retryCount++;
             float time = MathF.Pow(2, retryCount);
@@ -42,7 +41,7 @@ public class AdmobAdBanner : AdmobAds
         if (AdmobManager.Instance.showAds == false) return;
         if (AdmobManager.isReady == false)
         {
-            Debug.LogError("admob is not ready for load banner");
+            if (showDebug) Debug.LogError("admob is not ready for load banner");
             return;
         }
         var adRequest = new AdRequest();
@@ -68,7 +67,8 @@ public class AdmobAdBanner : AdmobAds
             bannerView.Show();
             isShowingAds = true;
             //FirebaseManager.analytics.LogAdsBannerRecorded("admob", "bottom");
-        } else
+        }
+        else
         {
             bannerView.Hide();
             isShowingAds = false;
@@ -91,3 +91,4 @@ public class AdmobAdBanner : AdmobAds
         return isShowingAds;
     }
 }
+

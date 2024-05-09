@@ -77,7 +77,7 @@ public class InterstitialAdManager : MonoBehaviour
         }
 #endif
 
-        return false;
+        return AdmobManager.Instance.inter.ShowAds(null);
     }
 
     #region private functions
@@ -90,6 +90,7 @@ public class InterstitialAdManager : MonoBehaviour
 #if USE_MAX_SDK
         MaxSdk.LoadInterstitial(adUnitId);
 #endif
+        AdmobManager.Instance.inter.LoadAds();
     }
 
 
