@@ -65,12 +65,14 @@ public class AdmobAdBanner : AdmobAds
         if (visible)
         {
             bannerView.Show();
+            if (showDebug) Debug.Log("Banner Showed");
             isShowingAds = true;
             //FirebaseManager.analytics.LogAdsBannerRecorded("admob", "bottom");
         }
         else
         {
             bannerView.Hide();
+            if (showDebug) Debug.Log("Banner Hided");
             isShowingAds = false;
         }
     }

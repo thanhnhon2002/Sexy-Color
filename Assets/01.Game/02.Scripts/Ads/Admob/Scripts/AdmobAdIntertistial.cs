@@ -40,7 +40,11 @@ public class AdmobAdInterstitial : AdmobAds
             _interstitialAd.Destroy();
             _interstitialAd = null;
         }
-
+        if (AdmobManager.isReady == false)
+        {
+            if (showDebug) Debug.LogError("admob is not ready for load Interstitial");
+            return;
+        }
         if (showDebug) Debug.Log("Loading the interstitial ad.");
 
         var adRequest = new AdRequest();

@@ -57,12 +57,13 @@ public class AdmobManager : MonoBehaviour
         {
             if (showDebug) Debug.Log("init finish with status = " + initStatus);
             var ads = GetComponentsInChildren<AdmobAds>();
+            isReady = true;
             for (int i = 0; i < ads.Length; i++)
             {
                 ads[i].Init();
                 ads[i].LoadAds();
             }
-            isReady = true;
+            
         });
     }
 }

@@ -36,7 +36,7 @@ public class AdmobAppOpen : AdmobAds
         if (AdmobManager.isReady == false)
         {
             if (showDebug) Debug.LogError("admob is not ready for load app open!");
-            //return;
+            return;
         }
         if (appOpenAd != null)
         {
@@ -78,7 +78,7 @@ public class AdmobAppOpen : AdmobAds
 
         if (appOpenAd != null && appOpenAd.CanShowAd())
         {
-            if (showDebug) Debug.Log("Showing app open ad.");
+            if (showDebug) Debug.Log("App Open Showed.");
             appOpenAd.Show();
             isShowingAds = true;
             return true;

@@ -80,10 +80,12 @@ public class MaxMediationWrapper : MMPersistentSingleton<MaxMediationWrapper>
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             UnityEngine.Debug.Log("Error. Check internet connection!");
-        }else
-            InitializeMaxSdk();
+        }
+        else
+            //InitializeMaxSdk();
+            InitializeAdsManagers();
 
-        
+
 
     }
 
@@ -136,102 +138,102 @@ public class MaxMediationWrapper : MMPersistentSingleton<MaxMediationWrapper>
     }
 
     private void OnDisable()
-    {
-#if USE_MAX_SDK
-        rewardedAdVideoManager.onRewardCallback -= ResetInterCappingTime;
-        appOpenAdsManager.OnAOAShow             -= ResetInterCappingTime;
-#endif
+   {
+//#if USE_MAX_SDK
+//        rewardedAdVideoManager.onRewardCallback -= ResetInterCappingTime;
+//        appOpenAdsManager.OnAOAShow             -= ResetInterCappingTime;
+//#endif
     }
 
     private async void InitializeMaxSdk()
     {
-#if USE_MAX_SDK
+//#if USE_MAX_SDK
         // while (FireBaseManager.Instance == null || !FireBaseManager.Instance.IsReady)
         // {
         //     await Task.Delay(100);
         // }
         
         // Listen to SDK events
-        MaxSdkCallbacks.OnSdkInitializedEvent += OnSDKInitialized;
+        //MaxSdkCallbacks.OnSdkInitializedEvent += OnSDKInitialized;
         // MaxSdkCallbacks.Interstitial.OnAdDisplayedEvent += 
-        MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAdHidden;
+        //MaxSdkCallbacks.AppOpen.OnAdHiddenEvent += OnAdHidden;
 
         // Set SDK key
-        MaxSdk.SetSdkKey(SDK_KEY);
-        if (!string.IsNullOrEmpty(USER_ID)) MaxSdk.SetUserId(USER_ID);
+        //MaxSdk.SetSdkKey(SDK_KEY);
+        //if (!string.IsNullOrEmpty(USER_ID)) MaxSdk.SetUserId(USER_ID);
 
         // Then start
-        MaxSdk.InitializeSdk();
+        //MaxSdk.InitializeSdk();
 
         // Track ad revenue event
-        TrackAdRevenueEvents();
-#endif
+        //TrackAdRevenueEvents();
+//#endif
     }
-#if USE_MAX_SDK
-    private void TrackAdRevenueEvents()
-    {
-        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
-        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent     += OnAdRevenuePaidEvent;
-        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent       += OnAdRevenuePaidEvent;
-        MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent         += OnAdRevenuePaidEvent;
-    }
-#endif
+//#if USE_MAX_SDK
+    //private void TrackAdRevenueEvents()
+    //{
+    //    MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent;
+    //    MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent     += OnAdRevenuePaidEvent;
+    //    MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent       += OnAdRevenuePaidEvent;
+    //    MaxSdkCallbacks.MRec.OnAdRevenuePaidEvent         += OnAdRevenuePaidEvent;
+    //}
+//#endif
 
     #endregion
 
     #region Event Listeners
-#if USE_MAX_SDK
-    private void OnSDKInitialized(MaxSdkBase.SdkConfiguration configuration)
-    {
-        // Load the ads here!!
-#if UNITY_ANDROID || UNITY_IOS
-        UnityEngine.Debug.Log("Show Debugger Max Mediation");
-       // MaxSdk.ShowMediationDebugger();
-#endif
-        UnityEngine.Debug.Log("Max Mediation ready");
-        InitializeAdsManagers();
+//#if USE_MAX_SDK
+//    private void OnSDKInitialized(MaxSdkBase.SdkConfiguration configuration)
+//    {
+//        // Load the ads here!!
+//#if UNITY_ANDROID || UNITY_IOS
+//        UnityEngine.Debug.Log("Show Debugger Max Mediation");
+//       // MaxSdk.ShowMediationDebugger();
+//#endif
+//        UnityEngine.Debug.Log("Max Mediation ready");
+//        InitializeAdsManagers();
 
-        if (IsAdActivated)
-        {
-            bannerAdManager.ShowBanner();
-            appOpenAdsManager?.ShowAdIfReady();
-        }
-    }
+//        if (IsAdActivated)
+//        {
+//            bannerAdManager.ShowBanner();
+//            appOpenAdsManager?.ShowAdIfReady();
+//        }
+//    }
 
 
 
-    private void OnAdHidden(string adsUnitID, MaxSdkBase.AdInfo adInfo)
-    {
+//    private void OnAdHidden(string adsUnitID, MaxSdkBase.AdInfo adInfo)
+//    {
 
-    }
+//    }
 
-    public void OnAppOpenDismissedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
-    {
-        MaxSdk.LoadAppOpenAd(AppOpenAdsManager.AppOpenAdUnitId);
-    }
+//    public void OnAppOpenDismissedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
+//    {
+//        MaxSdk.LoadAppOpenAd(AppOpenAdsManager.AppOpenAdUnitId);
+//    }
 
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (!pauseStatus)
-        {
-            if(IsAdActivated)
-                appOpenAdsManager?.ShowAdIfReady();
-        }
-    }
+//    private void OnApplicationPause(bool pauseStatus)
+//    {
+//        if (!pauseStatus)
+//        {
+//            if(IsAdActivated)
+//                appOpenAdsManager?.ShowAdIfReady();
+//        }
+//    }
 
-    private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
-    {
-        // double revenue = impressionData.Revenue;
-        // var impressionParameters = new[] {
-        //     new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
-        //     new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
-        //     new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
-        //     new Firebase.Analytics.Parameter("ad_format", impressionData.AdFormat),
-        //     new Firebase.Analytics.Parameter("value", revenue),
-        //     new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
-        // };
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
-    }
-#endif
+//    private void OnAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo impressionData)
+//    {
+//        // double revenue = impressionData.Revenue;
+//        // var impressionParameters = new[] {
+//        //     new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
+//        //     new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
+//        //     new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
+//        //     new Firebase.Analytics.Parameter("ad_format", impressionData.AdFormat),
+//        //     new Firebase.Analytics.Parameter("value", revenue),
+//        //     new Firebase.Analytics.Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
+//        // };
+//        // Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
+//    }
+//#endif
     #endregion
 }
