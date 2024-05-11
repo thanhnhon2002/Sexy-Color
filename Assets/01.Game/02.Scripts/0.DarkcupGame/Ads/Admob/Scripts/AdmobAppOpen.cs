@@ -93,11 +93,12 @@ public class AdmobAppOpen : AdmobAds
 
     public override bool IsAdsAvailable()
     {
-        return available;
+        return available;//&&DateTime.Now < expireTime;
     }
 
     public override bool IsShowingAds()
     {
         return isShowingAds;
     }
+
 }

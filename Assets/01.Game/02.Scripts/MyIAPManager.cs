@@ -10,8 +10,52 @@ using BBG;
 using MoreMountains.Tools;
 using UnityEngine.Purchasing.Extension;
 
-public class MyIAPManager : MMPersistentSingleton<MyIAPManager>
+public class MyIAPManager : MMPersistentSingleton<MyIAPManager>, IStoreListener
 {
+    public Dictionary<string, string> prices;
+    private IStoreController controller;
+    private IExtensionProvider extensions;
+    public bool initSuccess = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+        builder.AddProduct("sexy.weekly.vip", ProductType.Subscription);
+        builder.AddProduct("sexy.monthly.vip", ProductType.Subscription);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        //builder.AddProduct("no_ads", ProductType.NonConsumable);
+        UnityPurchasing.Initialize(this, builder);
+    }
+
+    public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+    {
+        Debug.Log("Init IAP success");
+        this.controller = controller;
+        this.extensions = extensions;
+        initSuccess = true;
+        var products = controller.products.all;
+        prices = new Dictionary<string, string>();
+        for (int i = 0; i < products.Length; i++)
+        {
+            prices.Add(products[i].definition.id, products[i].metadata.localizedPriceString);
+        }
+        var texts = GameObject.FindObjectsOfType<TextPricingIAP>();
+        for (int i = 0; i < texts.Length; i++)
+        {
+            texts[i].UpdateDisplay();
+        }
+    }
     // private static IStoreController m_StoreController;          // The Unity Purchasing system.
     // private static IExtensionProvider m_StoreExtensionProvider; // The store-specific Purchasing subsystems.
     // private static UnityEngine.Purchasing.Product test_product = null;
@@ -306,9 +350,28 @@ public class MyIAPManager : MMPersistentSingleton<MyIAPManager>
         Application.OpenURL("https://sites.google.com/view/sexy-coloring-book-tos/home");
     }
 
-    public void OnPurchasedFailed(Product product, PurchaseFailureDescription reason)
+    public void OnPurchaseFailed(Product product, PurchaseFailureDescription reason)
     {
         Debug.LogError($"Product: {product.definition.id} Purchase Failed: {reason.message}");
     }
 
+    public void OnInitializeFailed(InitializationFailureReason error)
+    {
+ 
+    }
+
+    public void OnInitializeFailed(InitializationFailureReason error, string message)
+    {
+       
+    }
+
+    public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+    {
+        Debug.LogError($"Product: {product.definition.id} Purchase Failed: {failureReason}");
+    }
 }

@@ -33,10 +33,10 @@ public class AppOpenFlowWhenChangeState : MonoBehaviour
 
         if (state == AppState.Foreground)
         {
-            if (showDebug) Debug.Log("try showing app open, sleep time = " + (Time.realtimeSinceStartup - gotoBackgroundTime));
-            if (Time.realtimeSinceStartup - gotoBackgroundTime > BACKGROUND_TIME_SHOW_APP_OPEN)
+            //if (showDebug) Debug.Log("try showing app open, sleep time = " + (Time.realtimeSinceStartup - gotoBackgroundTime));
+            //if (Time.realtimeSinceStartup - gotoBackgroundTime > BACKGROUND_TIME_SHOW_APP_OPEN)
             {
-                if (showDebug) Debug.Log("showing app open, available = " + appOpen.IsAdsAvailable());
+                //if (showDebug) Debug.Log("showing app open, available = " + appOpen.IsAdsAvailable());
                 if (appOpen.IsAdsAvailable())
                 {
                     appOpen.ShowAds(null);

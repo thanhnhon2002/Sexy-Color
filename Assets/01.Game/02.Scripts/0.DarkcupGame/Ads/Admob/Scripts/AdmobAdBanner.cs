@@ -19,7 +19,7 @@ public class AdmobAdBanner : AdmobAds
         bannerView.OnBannerAdLoaded += () =>
         {
             available = true;
-            SetBannerVisible(true);
+            //SetBannerVisible(true);
             //CollapsibleBannerFlow.Instance.OnCollapsibleAdsLoaded();
         };
         bannerView.OnBannerAdLoadFailed += (err) =>

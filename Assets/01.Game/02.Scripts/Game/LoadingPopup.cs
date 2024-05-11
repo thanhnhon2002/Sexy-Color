@@ -37,12 +37,13 @@ public class LoadingPopup : Popup
             loadingSlider.value = time / duration;
             yield return null;
         }
-        yield return null;
+        if(isFirstLoad) yield return new WaitForSeconds(1.2f);
         if (isFirstLoad)
         {
             AdmobManager.Instance.appOpen.ShowAds(null);
             isFirstLoad = false;
         }
+        yield return null;
         Hide(true);
         
     }
