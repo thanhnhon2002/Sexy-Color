@@ -7,26 +7,11 @@ using UnityEngine.Purchasing;
 
 public class TextPricingIAP : MonoBehaviour
 {
-    public TextMeshProUGUI txt;
-    public string id;
-
-    private void Awake()
+    private TextMeshProUGUI txt;
+    public void OnProductFetched(Product product)
     {
-        txt = GetComponent<TextMeshProUGUI>();
-    }
-
-    private void OnEnable()
-    {
-        UpdateDisplay();
-    }
-
-    public void UpdateDisplay()
-    {
-        //if (ShopIAPManager.Instance == null) return;
-        //if (ShopIAPManager.Instance.IsInitDone() == false) return;
-        id = transform.GetComponentInParent<CodelessIAPButton>().productId;
-        Dictionary<string, string> prices = MyIAPManager.Instance.prices;
-        if (prices.ContainsKey(id) == false) return;
-        txt.text = prices[id];
+        if (txt == null) txt = GetComponent<TextMeshProUGUI>();
+        Debug.LogError("OnProductFetched " + product.definition.id);
+        txt.text = product.metadata.localizedPriceString;
     }
 }
