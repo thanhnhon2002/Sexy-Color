@@ -10,8 +10,6 @@ public class AppOpenFlowWhenChangeState : MonoBehaviour
     [SerializeField] private bool showDebug;
 
     public AdmobAppOpen appOpen;
-    //public IronsourceIntertistial intertistial;
-    //public IronsourceReward rewarded;
     private float gotoBackgroundTime;
 
     private void Awake()
@@ -22,8 +20,8 @@ public class AppOpenFlowWhenChangeState : MonoBehaviour
     private void OnAppStateChanged(AppState state)
     {
         if (showDebug) Debug.Log("app state changed, app state = " + state);
-        //if (intertistial.IsShowingAds()) return;
-        //if (rewarded.IsShowingAds()) return;
+        if (AdmobManager.Instance.inter.IsShowingAds()) return;
+        if (AdmobManager.Instance.reward.IsShowingAds()) return;
 
         if (state == AppState.Background)
         {
@@ -33,10 +31,10 @@ public class AppOpenFlowWhenChangeState : MonoBehaviour
 
         if (state == AppState.Foreground)
         {
-            //if (showDebug) Debug.Log("try showing app open, sleep time = " + (Time.realtimeSinceStartup - gotoBackgroundTime));
-            //if (Time.realtimeSinceStartup - gotoBackgroundTime > BACKGROUND_TIME_SHOW_APP_OPEN)
+            if (showDebug) Debug.Log("try showing app open, sleep time = " + (Time.realtimeSinceStartup - gotoBackgroundTime));
+            if (Time.realtimeSinceStartup - gotoBackgroundTime > BACKGROUND_TIME_SHOW_APP_OPEN)
             {
-                //if (showDebug) Debug.Log("showing app open, available = " + appOpen.IsAdsAvailable());
+                if (showDebug) Debug.Log("showing app open, available = " + appOpen.IsAdsAvailable());
                 if (appOpen.IsAdsAvailable())
                 {
                     appOpen.ShowAds(null);
