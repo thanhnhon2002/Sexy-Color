@@ -40,11 +40,10 @@ public class LoadingPopup : Popup
         if(isFirstLoad) yield return new WaitForSeconds(1.2f);
         if (isFirstLoad)
         {
-            AdmobManager.Instance.appOpen.ShowAds(null);
+            AdmobManager.Instance.appOpen.ShowAds(()=> {
+                Hide(true);
+            });
             isFirstLoad = false;
         }
-        yield return null;
-        Hide(true);
-        
     }
 }

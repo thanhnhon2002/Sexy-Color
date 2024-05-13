@@ -86,6 +86,7 @@ public class AdmobAppOpen : AdmobAds
         else
         {
             if (showDebug) Debug.LogError("App open ad is not ready yet.");
+            onShowAdsCompleted?.Invoke();
             isShowingAds = false;
             return false;
         }
