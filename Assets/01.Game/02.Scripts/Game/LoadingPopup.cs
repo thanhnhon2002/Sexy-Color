@@ -30,20 +30,23 @@ public class LoadingPopup : Popup
     private IEnumerator Loading(int duration)
     {
         float time = 0f;
+        if (isFirstLoad) duration += 1;
         while (time < duration)
         {
             time += Time.deltaTime;
             //if(time>duration/2) 
             loadingSlider.value = time / duration;
             yield return null;
-        }
-        if(isFirstLoad) yield return new WaitForSeconds(1.2f);
+        }       
         if (isFirstLoad)
         {
-            AdmobManager.Instance.appOpen.ShowAds(()=> {
+            AdmobManager.Instance.appOpen.ShowAds(()=> 
+            {
                 Hide(true);
+                Debug.Log("Closed AppOpen");
             });
             isFirstLoad = false;
         }
+        else Hide(true);
     }
 }
