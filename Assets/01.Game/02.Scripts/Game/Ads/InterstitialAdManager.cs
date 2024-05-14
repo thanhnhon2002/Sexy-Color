@@ -64,16 +64,16 @@ public class InterstitialAdManager : MonoBehaviour
 //            canShowAds = false;
 //            TurnOnAdsAfter(timeBetweenAds);
 
-//            // FirebaseAnalytics.LogEvent("ad_inter_show");
-//            // AppsFlyer.sendEvent("inters_attempt", new());
-//            // Adjust.trackEvent(new AdjustEvent("adj_inters_ad_eligible"));
-//            // Adjust.trackEvent(new AdjustEvent("adj_inters_api_called"));
-//            // Adjust.trackEvent(new AdjustEvent("adj_inters_displayed"));
+//            FirebaseAnalytics.LogEvent("ad_inter_show");
+//            AppsFlyer.sendEvent("inters_attempt", new());
+//            Adjust.trackEvent(new AdjustEvent("adj_inters_ad_eligible"));
+//            Adjust.trackEvent(new AdjustEvent("adj_inters_api_called"));
+//            Adjust.trackEvent(new AdjustEvent("adj_inters_displayed"));
 //            return true;
 //        }
 //        else
 //        {
-//            // FirebaseAnalytics.LogEvent("ad_inter_fail");
+//            FirebaseAnalytics.LogEvent("ad_inter_fail");
 //        }
 //#endif
 

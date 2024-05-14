@@ -13,7 +13,10 @@ public class AdmobReward : AdmobAds
     private int retryCount;
     private MainThreadScriptRunner mainThread;
     private Action onShowAdsComplete;
-
+    private void Awake()
+    {
+        mainThread = GetComponent<MainThreadScriptRunner>();
+    }
     public override void Init()
     {
         //throw new NotImplementedException();
@@ -61,8 +64,8 @@ public class AdmobReward : AdmobAds
                 {
                     available = false;
                     isShowingAds = false;
-                    LoadAds();
                     mainThread.Run(onShowAdsComplete);
+                    LoadAds();                   
                 };
             });
 

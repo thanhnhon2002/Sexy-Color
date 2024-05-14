@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BBG.PictureColoring
@@ -214,6 +215,7 @@ namespace BBG.PictureColoring
 
         public int GetLevelCategoryIndex()
         {
+            //return GetLevelCategoryIndexDG();
             for (var i = 0; i < GameManager.Instance.Categories.Count; i++)
             {
                 var category = GameManager.Instance.Categories[i];
@@ -225,7 +227,19 @@ namespace BBG.PictureColoring
 
             return -1;
         }
-
+        public int GetLevelCategoryIndexDG()
+        {
+            var categoryList = GameManager.Instance.Categories.Where(obj => !obj.isStoryMode).ToList();
+            for (var i = 0; i < categoryList.Count; i++)
+            {
+                var category = categoryList[i];
+                foreach (var level in category.levels)
+                {
+                    if (level == this) return i;
+                }
+            }
+            return -1;
+        }
         #endregion
 
         #region Private Methods

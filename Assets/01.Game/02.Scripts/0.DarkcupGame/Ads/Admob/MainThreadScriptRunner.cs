@@ -20,7 +20,7 @@ namespace DarkcupGames
         }
         public void Run(Action action)
         {
-            mainThreadEvents.Add(action);
+            if(action!=null) mainThreadEvents.Add(action);
         }
     }
 }

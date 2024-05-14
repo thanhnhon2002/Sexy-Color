@@ -28,9 +28,12 @@ public class SuggestionPanel : MonoBehaviour
     {
         List<LevelData> levelDatas = null;
         var categoryList = GameManager.Instance.Categories.Where(obj => !obj.isStoryMode).ToList();
+        Debug.Log("Count: " + categoryList.Count);
         var activeCategoryIndex = categoryIndex == -1
             ? GameManager.Instance.ActiveLevelData.GetLevelCategoryIndex()
             : categoryIndex;
+        Debug.Log("Value index: "+activeCategoryIndex);
+        
         levelDatas = categoryList[activeCategoryIndex].levels
             .Where(level => !GameManager.Instance.AwardedLevels.Contains(level.Id)).ToList();
         // Check if this is the first time we are setting up the library list
