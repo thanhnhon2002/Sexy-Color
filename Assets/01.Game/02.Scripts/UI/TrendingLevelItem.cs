@@ -17,7 +17,7 @@ namespace BBG.PictureColoring
         public void Populate(LevelData levelData)
         {
             _levelData   = levelData;
-            image.sprite = _levelData.levelImagePreview ? _levelData.levelImagePreview : levelData.levelImage;
+            image.sprite = _levelData.levelImagePreview ?  levelData.levelImage : _levelData.levelImagePreview;
         }
 
         private void Start()

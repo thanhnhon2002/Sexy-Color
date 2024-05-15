@@ -25,7 +25,7 @@ namespace BBG.PictureColoring
         #region Member Variables
 
         private bool   levelFileParsed;
-        private string id;
+        [SerializeField] private string id;
         private string assetPath;
 
         #endregion

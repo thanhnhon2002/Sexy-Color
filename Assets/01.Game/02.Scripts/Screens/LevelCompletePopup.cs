@@ -10,11 +10,11 @@ namespace BBG.PictureColoring
         [SerializeField] private Image completePicture;
 
         private LevelData _levelData;
-
         public void Setup(LevelData levelData)
         {
             _levelData = levelData;
             completePicture.sprite = levelData.levelImage;
+            if (completePicture.sprite == null || completePicture.sprite != levelData.levelImage) Debug.LogError("Loi o day!");
         }
         
         public void ShowRestartConfirmPopup()

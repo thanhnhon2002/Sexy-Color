@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace BBG.PictureColoring
 {
 	#region Main Class
-
+	[Serializable]
 	public class LevelFileData
 	{
 		public int			imageWidth;

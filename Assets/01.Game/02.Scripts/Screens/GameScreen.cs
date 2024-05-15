@@ -503,13 +503,25 @@ namespace BBG.PictureColoring
 
             if (activeLevelData != null)
             {
-                if (activeLevelData.LevelCompletePercentage() > 0 && isAwake)
+                if (activeLevelData.LevelCompletePercentage() > 0 && isAwake&&activeLevelData.LevelCompletePercentage()<1&& !activeLevelData.AllRegionsColored())
                 {
                     levelContinueUI.gameObject.SetActive(true);
                     gameplayUI.gameObject.SetActive(false);
                     levelContinueUI.GetComponent<LevelCompletePopup>().Setup(activeLevelData);
                     levelContinueUI.GetComponentInChildren<SuggestionPanel>().Show();
+
+                    //gameplayUI.interactable = false;
+                    //gameplayUI.blocksRaycasts = false;
+                    //gameplayUI.alpha = 0f;
+                    //levelCompleteUI.GetComponent<LevelCompletePopup>().Setup(activeLevelData);
+                    //levelCompleteUI.interactable = true;
+                    //levelCompleteUI.blocksRaycasts = true;
+                    //levelCompleteUI.alpha = 1f;
+                    //levelCompleteUI.GetComponentInChildren<SuggestionPanel>().Show();
+                    //levelContinueUI.gameObject.SetActive(false);
+
                 }
+
                 levelProgressSlider.DOValue(activeLevelData.LevelCompletePercentage(), .5f);
                 progressText.text = $"{activeLevelData.LevelCompletePercentage():P0}";
                 if (activeLevelData.LevelCompletePercentage() >= GameManager.Instance.GiftMilestoneValue)
@@ -523,7 +535,7 @@ namespace BBG.PictureColoring
                 }
             }
 
-            if (activeLevelData.LevelCompletePercentage() == 1)
+            if (activeLevelData?.LevelCompletePercentage() == 1||activeLevelData.AllRegionsColored())
             {
                 gameplayUI.interactable        = false;
                 gameplayUI.blocksRaycasts      = false;

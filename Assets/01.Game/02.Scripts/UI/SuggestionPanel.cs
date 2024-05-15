@@ -27,7 +27,7 @@ public class SuggestionPanel : MonoBehaviour
     public void Show()
     {
         List<LevelData> levelDatas = null;
-        var categoryList = GameManager.Instance.Categories.Where(obj => !obj.isStoryMode).ToList();
+        var categoryList = GameManager.Instance.Categories;//.Where(obj => !obj.isStoryMode).ToList();
         Debug.Log("Count: " + categoryList.Count);
         var activeCategoryIndex = categoryIndex == -1
             ? GameManager.Instance.ActiveLevelData.GetLevelCategoryIndex()
