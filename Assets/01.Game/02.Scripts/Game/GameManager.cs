@@ -97,7 +97,17 @@ namespace BBG.PictureColoring
             }
         }
 
-        public LevelData ActiveLevelData { get; private set; }
+        public LevelData ActiveLevelData{ get; private set; }
+        private void Update()
+        {
+            //if (ActiveLevelData == null) Debug.Log("Nulllllllll");
+            //else
+            //Debug.Log(GameManager.Instance.ActiveLevelData == null);
+        }
+        public void SetActiveLevelData(LevelData leveldata)
+        {
+            ActiveLevelData = leveldata;
+        }
 
         public List<LevelData> AllLevels
         {
@@ -251,8 +261,9 @@ namespace BBG.PictureColoring
 
         public void StartLevel(LevelData levelData)
         {
+            bool check = this.check;
             ReleaseLevel();
-
+            if (check) this.check = check;
             // Set the new active LevelData
             ActiveLevelData = levelData;
 
@@ -603,14 +614,16 @@ namespace BBG.PictureColoring
                 ReleaseLevel();
             }
         }
-
+        public bool check;
         private void ReleaseLevel()
         {
-            if (ActiveLevelData != null)
+            if (ActiveLevelData != null&&!check)
             {
                 LoadManager.Instance.ReleaseLevel(ActiveLevelData.Id);
                 ActiveLevelData = null;
+                //Debug.Log("Bong dung muon khoc ==========================================");
             }
+            check =false;
         }
 
         #endregion

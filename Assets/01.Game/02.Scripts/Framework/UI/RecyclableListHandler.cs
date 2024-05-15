@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BBG.PictureColoring;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,9 +49,20 @@ namespace BBG
 		#endregion
 
 		#region Constructor
-
+		bool check;
 		public RecyclableListHandler(List<T> dataObjects, RecyclableListItem<T> listItemPrefab, RectTransform listContainer, ScrollRect listScrollRect)
 		{
+			this.dataObjects		= dataObjects;
+			this.listItemPrefab		= listItemPrefab;
+			this.listContainer		= listContainer;
+			this.listScrollRect		= listScrollRect;
+
+			listItemPool			= new ObjectPool(listItemPrefab.gameObject, 0, ObjectPool.CreatePoolContainer(listContainer));
+			listItemPlaceholders	= new List<RectTransform>();
+		}
+		public RecyclableListHandler(bool checkArg,List<T> dataObjects, RecyclableListItem<T> listItemPrefab, RectTransform listContainer, ScrollRect listScrollRect)
+		{
+			check = checkArg;
 			this.dataObjects		= dataObjects;
 			this.listItemPrefab		= listItemPrefab;
 			this.listContainer		= listContainer;
@@ -68,6 +80,14 @@ namespace BBG
 		{
 			dataObjects = newDataObjects;
 
+			SyncPlaceholdersObjects();
+
+			Reset();
+		}
+		public void UpdateDataObjects(bool checkArg, List<T> newDataObjects)
+		{
+			dataObjects = newDataObjects;
+			check = checkArg;
 			SyncPlaceholdersObjects();
 
 			Reset();
@@ -296,7 +316,7 @@ namespace BBG
 			{
 				listItem.Data				= dataObject;
 				listItem.OnListItemClicked	= OnItemClicked;
-			}
+            }
 
 			if (itemInstantiated)
 			{
@@ -326,9 +346,23 @@ namespace BBG
 		}
 
 		private void OnItemClicked(int index, object dataObject)
-		{
-			OnListItemClicked((T)dataObject);
-		}
+		{			
+			if (check) GameManager.Instance.check = check;
+            OnListItemClicked((T)dataObject);
+            //if ((T)dataObject == null) Debug.Log("Null roi ma oi");
+            //else
+            //{
+            //	Debug.Log("Co du lieu nha");
+            //	Debug.Log("Co du lieu nha");
+            //	Debug.Log("Co du lieu nha");
+            //	Debug.Log("Co du lieu nha");
+            //	Debug.Log("Co du lieu nha");
+            //	Debug.Log("Kieu du lieu "+typeof(T));
+            //	GameManager.Instance.SetActiveLevelData((LevelData)dataObject);
+            //             Debug.Log(GameManager.Instance.ActiveLevelData!=null);
+            //}
+            //OnListItemClicked?.Invoke((T)dataObject);
+        }
 
 		#endregion
 	}

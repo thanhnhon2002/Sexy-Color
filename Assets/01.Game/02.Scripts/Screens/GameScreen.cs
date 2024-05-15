@@ -66,10 +66,13 @@ namespace BBG.PictureColoring
             }
             PlayerPrefs.Save();
             var activeLevelData = GameManager.Instance.ActiveLevelData;
-            if(activeLevelData.LevelCompletePercentage() >= .5f)
+            if (activeLevelData != null && activeLevelData.LevelCompletePercentage() >= .5f)
+            {
                 exitComfirmPopup.SetActive(true);
+            }
             else
             {
+                ScreenManager.Instance.Back();
                 ScreenManager.Instance.Back();
             }
         }

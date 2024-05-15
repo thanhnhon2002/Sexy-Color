@@ -128,6 +128,7 @@ namespace BBG
 
 			// Show the screen
 			Show(screenId, true, false);
+			Back();
 		}
 
 		/// <summary>

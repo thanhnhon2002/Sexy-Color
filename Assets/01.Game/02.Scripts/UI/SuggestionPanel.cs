@@ -28,11 +28,11 @@ public class SuggestionPanel : MonoBehaviour
     {
         List<LevelData> levelDatas = null;
         var categoryList = GameManager.Instance.Categories;//.Where(obj => !obj.isStoryMode).ToList();
-        Debug.Log("Count: " + categoryList.Count);
+        //Debug.Log("Count: " + categoryList.Count);
         var activeCategoryIndex = categoryIndex == -1
             ? GameManager.Instance.ActiveLevelData.GetLevelCategoryIndex()
             : categoryIndex;
-        Debug.Log("Value index: "+activeCategoryIndex);
+        //Debug.Log("Value index: "+activeCategoryIndex);
         
         levelDatas = categoryList[activeCategoryIndex].levels
             .Where(level => !GameManager.Instance.AwardedLevels.Contains(level.Id)).ToList();
@@ -40,7 +40,7 @@ public class SuggestionPanel : MonoBehaviour
         if (levelListHandler == null)
         {
             // Create a new RecyclableListHandler to handle recycling list items that scroll off screen
-            levelListHandler = new RecyclableListHandler<LevelData>(levelDatas, levelListItemPrefab,
+            levelListHandler = new RecyclableListHandler<LevelData>(true,levelDatas, levelListItemPrefab,
                 levelListContainer.transform as RectTransform, levelListScrollRect);
 
             levelListHandler.OnListItemClicked = GameManager.Instance.LevelSelected;
@@ -51,7 +51,7 @@ public class SuggestionPanel : MonoBehaviour
         else
         {
             // Update the the RecyclableListHandler with the new data set
-            levelListHandler.UpdateDataObjects(levelDatas);
+            levelListHandler.UpdateDataObjects(true,levelDatas);
         }
     }
 }
