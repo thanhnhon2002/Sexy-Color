@@ -152,8 +152,10 @@ namespace UnityEngine.Purchasing
             var product = CodelessIAPStoreListener.Instance.GetProduct(productId);
             if (product != null)
             {
+                //gameObject.SetActive(false);
                 onProductFetched.Invoke(product);
             }
+            else gameObject.SetActive(false);
         }
 
         /// <summary>

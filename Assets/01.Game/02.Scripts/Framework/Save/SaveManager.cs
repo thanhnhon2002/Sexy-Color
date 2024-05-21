@@ -62,7 +62,7 @@ namespace BBG
 
 		private void Start()
 		{
-			Debug.Log("Save folder path: " + SaveFolderPath);
+			//Debug.Log("Save folder path: " + SaveFolderPath);
 
 			SetSaveNextTime();
 		}

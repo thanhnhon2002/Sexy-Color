@@ -82,9 +82,8 @@ namespace BBG
 			{
 				return 0;
 			}
-
 			return currencyAmounts[currencyId];
-		}
+        }
 
 		/// <summary>
 		/// Tries to spend the curreny

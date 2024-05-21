@@ -11,6 +11,7 @@ using UnityEngine.Purchasing.Extension;
 
 public class MyIAPManager : MMPersistentSingleton<MyIAPManager>//, IStoreListener
 {
+
     public void OnPurchaseComplete(Product product)
     {
         switch (product.definition.id)

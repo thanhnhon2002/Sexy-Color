@@ -45,10 +45,10 @@ public class AdsController : MonoBehaviour
     /// </summary>
     private void HandleInitCompleteAction(InitializationStatus initstatus)
     {
-        Debug.Log("NATIVE: Initialization complete ");
+       // Debug.Log("NATIVE: Initialization complete ");
         foreach (var item in initstatus.getAdapterStatusMap())
         {
-            Debug.Log(item.Key + " ---- " + item.Value);
+            //Debug.Log(item.Key + " ---- " + item.Value);
         }
         nativeAdLoaded = false;
         RequestNativeAd();
@@ -84,7 +84,7 @@ public class AdsController : MonoBehaviour
     private void HandleNativeAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
         string message = args.LoadAdError.GetMessage();
-        MonoBehaviour.print("Ad Loader fail event received with message: " + message);
+        //MonoBehaviour.print("Ad Loader fail event received with message: " + message);
         Debug.LogError("Admobs Loaded Failed!" + message);
     }
 }

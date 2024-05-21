@@ -56,6 +56,10 @@ namespace UnityEngine.Purchasing
 
         void OnEnable()
         {
+            CheckInitToComplete();
+        }
+        void CheckInitToComplete()
+        {
             if (IsAPurchaseButton())
             {
                 AddButtonToCodelessListener();
@@ -64,6 +68,10 @@ namespace UnityEngine.Purchasing
                     OnInitCompleted();
                 }
             }
+        }
+        public void OnEnableButton()
+        {
+            CheckInitToComplete();
         }
 
         void OnDisable()

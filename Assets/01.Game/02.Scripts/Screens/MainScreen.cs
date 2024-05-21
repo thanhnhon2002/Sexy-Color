@@ -80,6 +80,7 @@ namespace BBG.PictureColoring
 
 		public void OnPremiumButtonClicked()
 		{
+			if(UnityEngine.Purchasing.CodelessIAPStoreListener.initializationComplete)
 			PopupManager.Instance.Show("vip_purchase_popup");
 		}
 

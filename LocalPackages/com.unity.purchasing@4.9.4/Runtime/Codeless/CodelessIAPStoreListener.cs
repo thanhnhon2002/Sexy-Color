@@ -14,11 +14,11 @@ namespace UnityEngine.Purchasing
     /// </summary>
     public class CodelessIAPStoreListener : IDetailedStoreListener
     {
-        private static CodelessIAPStoreListener instance;
+        public static CodelessIAPStoreListener instance;
 
         //disable Warning CS0618  IAPButton is deprecated, please use CodelessIAPButton instead.
 #pragma warning disable 0618
-        private readonly List<IAPButton> activeButtons = new List<IAPButton>();
+        public readonly List<IAPButton> activeButtons = new List<IAPButton>();
         private readonly List<CodelessIAPButton> activeCodelessButtons = new List<CodelessIAPButton>();
         private readonly List<IAPListener> activeListeners = new List<IAPListener>();
         private static bool unityPurchasingInitialized;
@@ -50,7 +50,7 @@ namespace UnityEngine.Purchasing
         public static bool initializationComplete;
 
         [RuntimeInitializeOnLoadMethod]
-        static void InitializeCodelessPurchasingOnLoad()
+        public static void InitializeCodelessPurchasingOnLoad()
         {
             var catalog = ProductCatalog.LoadDefaultCatalog();
             if (catalog.enableCodelessAutoInitialization && !catalog.IsEmpty() && instance == null)
@@ -293,6 +293,8 @@ namespace UnityEngine.Purchasing
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             initializationComplete = true;
+            Debug.Log("Init IAP Complete------------------------");
+
             this.controller = controller;
             this.extensions = extensions;
 

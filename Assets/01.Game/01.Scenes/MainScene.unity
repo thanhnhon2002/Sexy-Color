@@ -3711,6 +3711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
         type: 3}
+      propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
+        type: 3}
       propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 165425696}
@@ -3721,12 +3726,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
         type: 3}
+      propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
+        type: 3}
       propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnProductFetched
       objectReference: {fileID: 0}
     - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
         type: 3}
       propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TextPricingIAP, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
+        type: 3}
+      propertyPath: onProductFetched.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: TextPricingIAP, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8504936289255556992, guid: aa30a8bab151147d196cf818346f6a1b,
