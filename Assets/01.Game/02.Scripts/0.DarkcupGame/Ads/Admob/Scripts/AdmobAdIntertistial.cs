@@ -20,7 +20,7 @@ public class AdmobAdInterstitial : AdmobAds
     }
     public override void Init()
     {
-        //move to load ads
+        //LoadAds();
     }
 
     public override bool IsAdsAvailable()
