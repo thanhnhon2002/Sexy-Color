@@ -19,8 +19,6 @@ public class AdmobAdBanner : AdmobAds
         bannerView.OnBannerAdLoaded += () =>
         {
             available = true;
-            //SetBannerVisible(true);
-            //CollapsibleBannerFlow.Instance.OnCollapsibleAdsLoaded();
         };
         bannerView.OnBannerAdLoadFailed += (err) =>
         {
@@ -31,7 +29,6 @@ public class AdmobAdBanner : AdmobAds
             float time = MathF.Pow(2, retryCount);
             if (time > 64) time = 64;
             Invoke(nameof(LoadAds), time);
-            //CollapsibleBannerFlow.Instance.OnCollapsibleAdsFailed();
         };
         GenerateNewUUID();
     }
@@ -67,7 +64,6 @@ public class AdmobAdBanner : AdmobAds
             bannerView.Show();
             if (showDebug) Debug.Log("Banner Showed");
             isShowingAds = true;
-            //FirebaseManager.analytics.LogAdsBannerRecorded("admob", "bottom");
         }
         else
         {
@@ -93,4 +89,3 @@ public class AdmobAdBanner : AdmobAds
         return isShowingAds;
     }
 }
-

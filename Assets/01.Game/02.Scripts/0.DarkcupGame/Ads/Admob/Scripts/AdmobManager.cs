@@ -63,7 +63,6 @@ public class AdmobManager : MonoBehaviour
                 ads[i].Init();
                 ads[i].LoadAds();
             }
-            
         });
     }
 }
