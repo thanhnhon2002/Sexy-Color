@@ -12,7 +12,7 @@ public class AdmobManager : MonoBehaviour
     public  AdmobAppOpen appOpen;
     public  AdmobAdInterstitial inter;
     public  AdmobReward reward;
-
+    public AdmobNative native;
 
     [SerializeField] private bool showDebug;
     public static bool isReady;
