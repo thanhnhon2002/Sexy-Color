@@ -37,7 +37,7 @@ public class AdsController : MonoBehaviour
     public void Start()
     {
         // Initialize the Google Mobile Ads SDK.
-        MobileAds.Initialize(HandleInitCompleteAction);
+       // MobileAds.Initialize(HandleInitCompleteAction);
     }
 
     /// <summary>

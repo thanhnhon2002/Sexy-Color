@@ -60,7 +60,7 @@ public class AdmobAdInterstitial : AdmobAds
                 Invoke(nameof(LoadAds), time);
                 return;
             }
-            if (showDebug) Debug.Log(ad.GetResponseInfo());
+            if (showDebug) Debug.Log(ad.GetResponseInfo() + "load ad inter thanh cong");
             available = true;
             _interstitialAd = ad;
             _interstitialAd.OnAdFullScreenContentClosed += () =>

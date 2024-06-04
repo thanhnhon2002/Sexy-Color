@@ -26,7 +26,7 @@ public class NativeAdsComponent : MonoBehaviour
     [SerializeField] Button _button;
     private void Start()
     {
-        ChangeState(true);
+        //ChangeState(true);
     }
     public void ChangeState(bool isLoading)
     {

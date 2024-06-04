@@ -15,7 +15,7 @@ public class MaxMediationWrapper : MMPersistentSingleton<MaxMediationWrapper>
             if (!CheckWeeklySubscription()) return false;
             if (!CheckMonthlySubscription()) return false;
 
-            return false;
+            return true;
 
         }
     }

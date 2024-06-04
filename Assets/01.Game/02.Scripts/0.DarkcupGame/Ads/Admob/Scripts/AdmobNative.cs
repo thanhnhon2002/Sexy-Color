@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using GoogleMobileAds.Api;
+//using GoogleMobileAds.Api.Mediation;
+
 public class AdmobNative : AdmobAds
 {
     public string NATIVE_ID;
@@ -10,7 +12,8 @@ public class AdmobNative : AdmobAds
     private bool isShowingAds;
     private int retryCount;
     private bool available = false;
-
+    bool success;
+    AdLoader adLoader;
     [SerializeField] private RawImage imgIcon;
     [SerializeField] private RawImage imgChoice;
     [SerializeField] private TextMeshProUGUI txtTitle;
@@ -19,21 +22,23 @@ public class AdmobNative : AdmobAds
     //[SerializeField] private TextMeshProUGUI txtCallToAction;
 
     public GameObject popupNative;
+    public GameObject leanTouch;
 
     private void Update()
     {
         UpdateDisplay();
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            ShowAds(null);
-        }
+        //if(Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    ShowAds(null);
+        //    Debug.Log("call Show AdNative");
+        //}
     }
 
     public void UpdateDisplay()
     {
         if (!available) return;
         available = false;
-
+        if (showDebug) Debug.Log("AdNative Set popup img + text");
         imgIcon.color = Color.white;
         imgChoice.color = Color.white;
         imgIcon.texture = nativeAds.GetIconTexture();
@@ -43,7 +48,7 @@ public class AdmobNative : AdmobAds
         txtAdvertiser.text = nativeAds.GetAdvertiserText();
         //txtCallToAction.text = nativeAds.GetCallToActionText();
 
-        bool success = false;
+        success = false;
         success = nativeAds.RegisterIconImageGameObject(imgIcon.gameObject);
         if (showDebug) Debug.LogError($"icon image = {success}");
         success = nativeAds.RegisterAdChoicesLogoGameObject(imgChoice.gameObject);
@@ -60,21 +65,23 @@ public class AdmobNative : AdmobAds
 
     public override void Init()
     {
-       // throw new NotImplementedException();
+        // throw new NotImplementedException();
+        adLoader = new AdLoader.Builder(NATIVE_ID).ForNativeAd().Build();
+        adLoader.OnNativeAdLoaded += OnNativeAdsLoaded;
+        adLoader.OnAdFailedToLoad += OnNativeAdFailedToLoad;
     }
 
     public override void LoadAds()
     {
-        AdLoader adLoader = new AdLoader.Builder(NATIVE_ID).ForNativeAd().Build();
-        adLoader.OnNativeAdLoaded += OnNativeAdsLoaded;
-        adLoader.OnAdFailedToLoad += OnNativeAdFailedToLoad;
-
+        Debug.Log("Native Call load ad");
         adLoader.LoadAd(new AdRequest());
     }
 
     public override bool ShowAds(Action onShowAdsComplete)
     {
         if (nativeAds == null) return false;
+        if (showDebug) Debug.Log("Show AdNative");
+        leanTouch.SetActive(true);
         popupNative.SetActive(true);
         isShowingAds=true;
         return true;
@@ -98,6 +105,7 @@ public class AdmobNative : AdmobAds
     }
     private void OnNativeAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
+        Debug.LogError("Native ad Load fail");
         if (showDebug) Debug.LogError($"Native ads failed to load: {args.LoadAdError}");
         available = false;
         retryCount++;
@@ -110,6 +118,7 @@ public class AdmobNative : AdmobAds
         Debug.LogError("Native ad loaded.");
         this.nativeAds = args.nativeAd;
         available = true;
+        if (showDebug) Debug.Log("AdNative Loaded");
     }
 }
 

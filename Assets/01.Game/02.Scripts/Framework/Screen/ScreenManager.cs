@@ -87,7 +87,8 @@ namespace BBG
 					// No active popups, if we are on the home screen close the app, else go back one screen
 					if (CurrentScreenId == HomeScreenId)
 					{
-						Application.Quit();
+						//Application.Quit();
+						AdmobManager.Instance.native.ShowAds(null);
 					}
 					else
 					{

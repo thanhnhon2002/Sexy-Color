@@ -57,7 +57,7 @@ public class AdmobReward : AdmobAds
                     return;
                 }
 
-                if (showDebug) Debug.Log(ad.GetResponseInfo());
+                if (showDebug) Debug.Log(ad.GetResponseInfo()+"load reward thanh cong");
                 available = true;
                 _rewardedAd = ad;
                 _rewardedAd.OnAdFullScreenContentClosed += () =>
